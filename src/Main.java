@@ -1,21 +1,24 @@
 import java.util.Scanner;
 
 public class Main {
+
     public static void main(String[] args) {
+
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Digite seu nome:");
+        System.out.print("Digite seu nome: ");
         String nome = scanner.nextLine();
 
-        System.out.println("Digite a mensagem:");
+        System.out.print("Digite a mensagem: ");
         String texto = scanner.nextLine();
 
         Mensagem mensagem = new MensagemSimples(texto);
-        Mensagem mensagemComAssinatura = new AssinaturaDecorator(mensagem, nome);
 
-        System.out.println();
-        System.out.println("Mensagem final:");
-        System.out.println(mensagemComAssinatura.gerar());
+        mensagem = new EmojiDecorator(mensagem, "😊");
+        mensagem = new AssinaturaDecorator(mensagem, nome);
+
+        System.out.println("\nMensagem final:");
+        System.out.println(mensagem.gerar());
 
         scanner.close();
     }
