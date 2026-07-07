@@ -1,9 +1,9 @@
-public class AssinaturaDecorator implements Mensagem {
-    private Mensagem mensagem;
+public class AssinaturaDecorator extends MensagemDecorator {
+    
     private String nome;
 
     public AssinaturaDecorator(Mensagem mensagem, String nome) {
-        this.mensagem = mensagem;
+        super(mensagem);
         this.nome = nome;
     }
 
